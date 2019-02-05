@@ -6,19 +6,13 @@
 {% endblock %}
 
 {% block body_block %}
-    {% if category %}
-		<h1>{{ category.name }}</h1>
-
-		{% if page %}
-			<ul>
-			{% for page in pages %}
-				<li><a href="{{ category.url }}">{{category.name}}</a></li>
-			{% endfor %}
-			</ul>
-		{% else %}
-			<strong>This page does not belong to a category.</strong>
-		{% endif %}
+	{% if page %}
+		<ul>
+		{% for page in pages %}
+			<li><a href="{{ category.url }}">{{page.title}}</a></li>
+		{% endfor %}
+		</ul>
 	{% else %}
-		The specified category does not exist!
-    {% endif %}
+			<strong>This page does not belong to a category.</strong>
+	{% endif %}
 {% endblock %}
